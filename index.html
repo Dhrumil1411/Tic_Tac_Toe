@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>TIC TAC TOE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .column1 {
+        float: left;
+      }
+
+      .column2 {
+        float: left;
+      }
+
+      .column3 {
+        float: left;
+      }
+
+      .box1 {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 40px;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+      }
+
+      .box2 {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 40px;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+      }
+
+      .box3 {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 40px;
+        border-right: 2px solid black;
+      }
+
+      .box4 {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 40px;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+      }
+
+      .box5 {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 40px;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+      }
+
+      .box6 {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 40px;
+        border-right: 2px solid black;
+      }
+
+      .box7 {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 40px;
+        border-bottom: 2px solid black;
+      }
+
+      .box8 {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 40px;
+        border-bottom: 2px solid black;
+      }
+
+      .box9 {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="TicTacToeBox" id="TicTacToeBox">
+      <div class="column1">
+        <div class="box1" id="1" onclick="print(this.id)"></div>
+        <div class="box2" id="2" onclick="print(this.id)"></div>
+        <div class="box3" id="3" onclick="print(this.id)"></div>
+      </div>
+
+      <div class="column2">
+        <div class="box4" id="4" onclick="print(this.id)"></div>
+        <div class="box5" id="5" onclick="print(this.id)"></div>
+        <div class="box6" id="6" onclick="print(this.id)"></div>
+      </div>
+
+      <div class="column3">
+        <div class="box7" id="7" onclick="print(this.id)"></div>
+        <div class="box8" id="8" onclick="print(this.id)"></div>
+        <div class="box9" id="9" onclick="print(this.id)"></div>
+      </div>
+    </div>
+
+    <div class="playerNumber" id="playerNumber">player X</div>
+
+    <button type="button" id="reset" class="reset">reset</button>
+
+    <script>
+      let b1 = document.getElementById("1");
+      let b2 = document.getElementById("2");
+      let b3 = document.getElementById("3");
+      let b4 = document.getElementById("4");
+      let b5 = document.getElementById("5");
+      let b6 = document.getElementById("6");
+      let b7 = document.getElementById("7");
+      let b8 = document.getElementById("8");
+      let b9 = document.getElementById("9");
+
+      let player = document.getElementById("playerNumber");
+
+      let btn = [];
+      let flag = [];
+
+      for (let i = 0; i < 10; i++) {
+        flag[i] = false;
+      }
+
+      function print(id) {
+        
+        if (flag[id - 1] == false) {
+          if (document.getElementById("playerNumber").innerHTML == "player X") {
+            document.getElementById(id).innerHTML = "X";
+            document.getElementById("playerNumber").innerHTML = "player O";
+            document.getElementById(id).style.backgroundColor = "lightgray";
+            btn[id - 1] = "X";
+            flag[id - 1] = true;
+            if (
+              b1.innerHTML == "X" &&
+              b2.innerHTML == "X" &&
+              b3.innerHTML == "X"
+            ) {
+              player.innerHTML = "player X Won";
+            } else if (
+              b1.innerHTML == "X" &&
+              b4.innerHTML == "X" &&
+              b7.innerHTML == "X"
+            ) {
+              player.innerHTML = "player X Won";
+            } else if (
+              b1.innerHTML == "X" &&
+              b5.innerHTML == "X" &&
+              b9.innerHTML == "X"
+            ) {
+              player.innerHTML = "player X Won";
+            } else if (
+              b9.innerHTML == "X" &&
+              b6.innerHTML == "X" &&
+              b3.innerHTML == "X"
+            ) {
+              player.innerHTML = "player X Won";
+            } else if (
+              b9.innerHTML == "X" &&
+              b8.innerHTML == "X" &&
+              b7.innerHTML == "X"
+            ) {
+              player.innerHTML = "player X Won";
+            } else if (
+              b2.innerHTML == "X" &&
+              b5.innerHTML == "X" &&
+              b8.innerHTML == "X"
+            ) {
+              player.innerHTML = "player X Won";
+            } else if (
+              b4.innerHTML == "X" &&
+              b5.innerHTML == "X" &&
+              b6.innerHTML == "X"
+            ) {
+              player.innerHTML = "player X Won";
+            }
+          } else {
+            document.getElementById(id).innerHTML = "O";
+            document.getElementById("playerNumber").innerHTML = "player X";
+            document.getElementById(id).style.backgroundColor = "lightgray";
+            btn[id - 1] = "O";
+            flag[id - 1] = true;
+            if (
+              b1.innerHTML == "O" &&
+              b2.innerHTML == "O" &&
+              b3.innerHTML == "O"
+            ) {
+              player.innerHTML = "player O Won";
+            } else if (
+              b1.innerHTML == "O" &&
+              b4.innerHTML == "O" &&
+              b7.innerHTML == "O"
+            ) {
+              player.innerHTML = "player O Won";
+            } else if (
+              b1.innerHTML == "O" &&
+              b5.innerHTML == "O" &&
+              b9.innerHTML == "O"
+            ) {
+              player.innerHTML = "player O Won";
+            } else if (
+              b9.innerHTML == "O" &&
+              b6.innerHTML == "O" &&
+              b3.innerHTML == "O"
+            ) {
+              player.innerHTML = "player O Won";
+            } else if (
+              b9.innerHTML == "O" &&
+              b8.innerHTML == "O" &&
+              b7.innerHTML == "O"
+            ) {
+              player.innerHTML = "player O Won";
+            } else if (
+              b2.innerHTML == "O" &&
+              b5.innerHTML == "O" &&
+              b8.innerHTML == "O"
+            ) {
+              player.innerHTML = "player O Won";
+            } else if (
+              b4.innerHTML == "O" &&
+              b5.innerHTML == "O" &&
+              b6.innerHTML == "O"
+            ) {
+              player.innerHTML = "player O Won";
+            }
+          }
+        }
+      }
+
+      document.getElementById("reset").addEventListener("click", () => {
+        for (let i = 1; i <= 9; i++) {
+          document.getElementById(i).innerHTML = "";
+          flag[i - 1] = false;
+          document.getElementById(i).style.backgroundColor = "white";
+        }
+        player.innerHTML = "player X";
+      });
+    </script>
+  </body>
+</html>
